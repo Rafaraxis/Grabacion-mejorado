@@ -7,10 +7,11 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        <Button x:Name="btnIniciar" Content="Inicial Grabación" HorizontalAlignment="Left" Margin="21,23,0,0" VerticalAlignment="Top" Width="154" Click="btnIniciar_Click"/>
+        <Button x:Name="btnIniciar" Content="Iniciar grabación" HorizontalAlignment="Left" Margin="21,23,0,0" VerticalAlignment="Top" Width="154" Click="btnIniciar_Click"/>
         <Button x:Name="btnDetener" Content="Detener Grabación" HorizontalAlignment="Left" Margin="201,23,0,0" VerticalAlignment="Top" Width="150" Click="btnDetener_Click"/>
         <TextBlock x:Name="lblMuestra" HorizontalAlignment="Left" Margin="21,81,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="154"/>
-        <Button x:Name="btnPlay" Content="Play" HorizontalAlignment="Left" Margin="367,23,0,0" VerticalAlignment="Top" Width="140" Height="62" Click="button_Click"/>
+        <Button x:Name="btnPlay" Content="Play" HorizontalAlignment="Left" Margin="367,23,0,0" VerticalAlignment="Top" Width="140" Height="20" Click="button_Click"/>
+        <Slider x:Name="sldVolumen" HorizontalAlignment="Left" Margin="263,71,0,0" VerticalAlignment="Top" Orientation="Vertical" Height="212" Maximum="32768" IsEnabled="False"/>
 
     </Grid>
 </Window>

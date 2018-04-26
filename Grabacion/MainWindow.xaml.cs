@@ -68,12 +68,26 @@ namespace Grabacion
             byte[] buffer = e.Buffer;
             int bytesGrabados = e.BytesRecorded;
 
-            for (int i=0; i < bytesGrabados; i++)
-            {
-                lblMuestra.Text = buffer[i].ToString();
-            }
 
-            writer.Write(buffer, 0, bytesGrabados);
+            double acumulador = 0;
+            double numMuestras = 0;
+
+            for (int i=0; i < bytesGrabados; i+=2)
+            {
+                // byte i =  0 1 1 0 0 1 1 1
+                //byte i+1 = 0 0 0 0 0 0 0 0 0 1 1 0 0 1 1 1
+                // or      = 0 1 1 0 0 1 1 1 0 1 1 0 0 1 1 1
+                short muestra =
+                        (short)Math.Abs((buffer[i + 1] << 8)|buffer[i]);
+                //lblMuestra.Text = muestra.ToString();
+                //sldVolumen.Value = (double)muestra;
+                acumulador += muestra;
+                numMuestras++;
+            }
+            double promedio = acumulador / numMuestras;
+            sldVolumen.Value = promedio;
+            //writer.Write(buffer, 0, bytesGrabados);
+           
         }
 
         private void btnDetener_Click(object sender, RoutedEventArgs e)
